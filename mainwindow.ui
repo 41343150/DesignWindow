@@ -11,7 +11,84 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>文件編輯器</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #1e1e1e;
+}
+QMenuBar {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-bottom: 1px solid #3d3d3d;
+    padding: 2px;
+}
+QMenuBar::item {
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+QMenuBar::item:selected {
+    background-color: #404040;
+}
+QMenu {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #3d3d3d;
+    border-radius: 4px;
+    padding: 4px;
+}
+QMenu::item {
+    padding: 8px 24px;
+    border-radius: 4px;
+}
+QMenu::item:selected {
+    background-color: #404040;
+}
+QToolBar {
+    background-color: #2d2d2d;
+    border: none;
+    border-bottom: 1px solid #3d3d3d;
+    padding: 4px;
+    spacing: 6px;
+}
+QToolButton {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: none;
+    color: #e0e0e0;
+}
+QToolButton:hover {
+    background-color: #404040;
+}
+QToolButton:pressed {
+    background-color: #505050;
+}
+QStatusBar {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-top: 1px solid #3d3d3d;
+}
+QWidget#centralwidget {
+    background-color: #1e1e1e;
+}
+QTextEdit, QPlainTextEdit {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #3d3d3d;
+}
+QScrollBar:vertical {
+    background-color: #2d2d2d;
+    width: 12px;
+}
+QScrollBar::handle:vertical {
+    background-color: #505050;
+    border-radius: 4px;
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover {
+    background-color: #606060;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
@@ -64,6 +141,7 @@
    <addaction name="actionOpen"/>
    <addaction name="actionClose"/>
    <addaction name="actionSave"/>
+   <addaction name="actionCorrect"/>
    <addaction name="separator"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
@@ -81,6 +159,10 @@
    <addaction name="actionPaste"/>
   </widget>
   <action name="actionNew">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/new.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>新增(&amp;N)</string>
    </property>
@@ -89,6 +171,10 @@
    </property>
   </action>
   <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/open.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>開啟(&amp;O)</string>
    </property>
@@ -97,6 +183,10 @@
    </property>
   </action>
   <action name="actionClose">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/close.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>關閉(&amp;C)</string>
    </property>
@@ -105,6 +195,10 @@
    </property>
   </action>
   <action name="actionSave">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/save.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>儲存(&amp;S)</string>
    </property>
@@ -113,6 +207,10 @@
    </property>
   </action>
   <action name="actionASave">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/save-as.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>另存新檔(&amp;A)</string>
    </property>
@@ -121,6 +219,10 @@
    </property>
   </action>
   <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/quit.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>退出(&amp;X)</string>
    </property>
@@ -129,6 +231,10 @@
    </property>
   </action>
   <action name="actionReduction">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/undo.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>還原(&amp;Z)</string>
    </property>
@@ -137,6 +243,10 @@
    </property>
   </action>
   <action name="actionRemake">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/redo.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>重作(&amp;Y)</string>
    </property>
@@ -145,6 +255,10 @@
    </property>
   </action>
   <action name="actionClip">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/cut.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>剪下(&amp;X)</string>
    </property>
@@ -153,6 +267,10 @@
    </property>
   </action>
   <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/copy.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>複製(&amp;C)</string>
    </property>
@@ -161,6 +279,10 @@
    </property>
   </action>
   <action name="actionAll">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/select-all.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>全選(&amp;A)</string>
    </property>
@@ -169,6 +291,10 @@
    </property>
   </action>
   <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/paste.svg</normaloff></iconset>
+   </property>
    <property name="text">
     <string>貼上(&amp;V)</string>
    </property>
@@ -176,7 +302,24 @@
     <string>Ctrl+V</string>
    </property>
   </action>
+  <action name="actionCorrect">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/correct.svg</normaloff></iconset>
+   </property>
+   <property name="text">
+    <string>更正(&amp;U)</string>
+   </property>
+   <property name="toolTip">
+    <string>更正上一步操作</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
